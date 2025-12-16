@@ -8,3 +8,4 @@ watchdog
 requests
 python-jose
 passlib[bcrypt]
+Office365-REST-Python-Client

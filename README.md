@@ -2,6 +2,8 @@
 
 **Metadata App** is a robust Python and JavaScript application designed to streamline metadata extraction, processing, and visualization. Containerized using Docker, it offers a scalable and developer-friendly architecture for both small-scale and enterprise-level projects.
 
+![alt text](image.png)
+
 ---
 
 ## Features
