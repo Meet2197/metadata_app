@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+aicsimageio
+ome-types
+watchdog
+requests
+python-jose
+passlib[bcrypt]
