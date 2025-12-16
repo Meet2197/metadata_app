@@ -9,7 +9,7 @@ from app.models import Experiment
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="RTG Microscopy Ingest Service")
+app = FastAPI(title="Microscopy Ingest Service")
 
 @app.on_event("startup")
 def startup_event():
@@ -24,4 +24,4 @@ def list_experiments(user=Depends(get_current_user)):
     experiments = db.query(Experiment).all()
     return experiments
 
-    
+

@@ -7,15 +7,13 @@ ELN_API_TOKEN = os.getenv("ELN_API_TOKEN", "")
 def create_eln_entry(metadata: dict) -> str:
     headers = {
         "Authorization": f"Bearer {ELN_API_TOKEN}",
-        "Content-Type": "application/json"
-    }
+        "Content-Type": "application/json"}
 
     payload = {
         "title": f"Microscopy: {metadata['filename']}",
         "user": metadata["user"],
         "instrument": metadata["microscope"],
-        "metadata": metadata
-    }
+        "metadata": metadata}
 
     response = requests.post(
         ELN_API_URL,

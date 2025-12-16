@@ -2,15 +2,11 @@ import os
 import uuid
 import datetime
 from pathlib import Path
-
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
 from aicsimageio import AICSImage
 from aicsimageio.writers import OmeTiffWriter, OmeZarrWriter
-
 from sqlalchemy.orm import Session
-
 from app.db import SessionLocal
 from app import models
 from app.eln import create_eln_entry

@@ -1,16 +1,20 @@
-FROM python:3.11-slim
+FROM openjdk:17.0.2-jdk-slim-bullseye
+
+# Install Python
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
-    openjdk-17-jre \
-    && rm -rf /var/lib/apt/lists/*
+# Copy project files
+COPY ./app /app/app
+COPY requirements.txt /app/requirements.txt
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies
+RUN pip3 install --no-cache-dir --upgrade pip
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
-COPY app/ app/
+EXPOSE 8000
 
-ENV PYTHONUNBUFFERED=1
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run Python app in module mode
+CMD ["python3", "-m", "app.main"]
